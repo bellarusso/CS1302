@@ -8,6 +8,7 @@ import javafx.scene.control.*;
 
 public class MainWindow {
 
+    // Input fields for adding a new task
     @FXML
     private TextField nameField;
     @FXML
@@ -17,13 +18,30 @@ public class MainWindow {
     @FXML
     private ListView<Task> taskList;
 
+    // Fields for selected task
+    @FXML
+    private TextArea selectedDescriptionField; // now editable for 3A
+    @FXML
+    private TextField selectedPriorityField;  // read-only
+
     private ObservableList<Task> tasks;
 
+    @FXML
     public void initialize() {
         tasks = FXCollections.observableArrayList();
         taskList.setItems(tasks);
 
         priorityBox.setItems(FXCollections.observableArrayList("Low", "Medium", "High"));
+
+        taskList.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
+            if (newSelection != null) {
+                selectedDescriptionField.setText(newSelection.getDescription());
+                selectedPriorityField.setText(newSelection.getPriority());
+            } else {
+                selectedDescriptionField.clear();
+                selectedPriorityField.clear();
+            }
+        });
     }
 
     @FXML
@@ -35,9 +53,19 @@ public class MainWindow {
         if (name != null && !name.isEmpty() && priority != null) {
             Task newTask = new Task(name, desc, priority);
             tasks.add(newTask);
+
             nameField.clear();
             descriptionField.clear();
             priorityBox.getSelectionModel().clearSelection();
+        }
+    }
+
+    @FXML
+    private void updateDescription() {
+        Task selectedTask = taskList.getSelectionModel().getSelectedItem();
+        if (selectedTask != null) {
+            selectedTask.setDescription(selectedDescriptionField.getText());
+            taskList.refresh();
         }
     }
 }

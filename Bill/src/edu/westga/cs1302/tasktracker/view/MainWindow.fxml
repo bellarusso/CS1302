@@ -3,20 +3,39 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox spacing="10" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+<VBox spacing="10" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
       fx:controller="edu.westga.cs1302.tasktracker.view.MainWindow">
-
-    <Label text="Task Name:"/>
-    <TextField fx:id="nameField"/>
-
-    <Label text="Description:"/>
-    <TextArea fx:id="descriptionField"/>
-
-    <Label text="Priority:"/>
-    <ComboBox fx:id="priorityBox"/>
-
+    <Label text="Add New Task"/>
+    <HBox spacing="5">
+        <Label text="Name:"/>
+        <TextField fx:id="nameField" promptText="Enter task name"/>
+    </HBox>
+    <HBox spacing="5">
+        <Label text="Description:"/>
+        <TextArea fx:id="descriptionField" promptText="Enter task description" prefRowCount="2"/>
+    </HBox>
+    <HBox spacing="5">
+        <Label text="Priority:"/>
+        <ComboBox fx:id="priorityBox"/>
+    </HBox>
     <Button text="Add Task" onAction="#addTask"/>
 
-    <Label text="Tasks:"/>
-    <ListView fx:id="taskList"/>
+    <Separator/>
+
+    <Label text="Tasks"/>
+    <ListView fx:id="taskList" prefHeight="150"/>
+
+    <Separator/>
+
+    <Label text="Selected Task"/>
+    <HBox spacing="5">
+        <Label text="Description:"/>
+        <TextArea fx:id="selectedDescriptionField" prefRowCount="2"/>
+    </HBox>
+    <HBox spacing="5">
+        <Label text="Priority:"/>
+        <TextField fx:id="selectedPriorityField" editable="false"/>
+    </HBox>
+    <Button text="Update Description" onAction="#updateDescription"/>
+
 </VBox>

@@ -2,8 +2,8 @@ package edu.westga.cs1302.tasktracker.model;
 
 public class Task {
     private final String name;
-    private String description;
     private final String priority;
+    private String description;
 
     public Task(String name, String description, String priority) {
         this.name = name;
@@ -12,23 +12,22 @@ public class Task {
     }
 
     public String getName() {
-        return name;
+        return this.name;
+    }
+
+    public String getPriority() {
+        return this.priority;
     }
 
     public String getDescription() {
-        return description;
+        return this.description;
     }
-
     public void setDescription(String description) {
         this.description = description;
     }
 
-    public String getPriority() {
-        return priority;
-    }
-
     @Override
     public String toString() {
-        return name;
+        return this.name;
     }
 }
