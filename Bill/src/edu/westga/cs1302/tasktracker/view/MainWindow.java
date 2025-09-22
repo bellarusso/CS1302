@@ -8,6 +8,7 @@ import javafx.scene.control.*;
 
 public class MainWindow {
 
+    // Input fields for adding a new task
     @FXML
     private TextField nameField;
     @FXML
@@ -18,7 +19,7 @@ public class MainWindow {
     private ListView<Task> taskList;
 
     @FXML
-    private TextArea selectedDescriptionField; 
+    private TextArea selectedDescriptionField;
     @FXML
     private TextField selectedPriorityField;
 
