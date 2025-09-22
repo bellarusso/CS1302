@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox spacing="10" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="edu.westga.cs1302.tasktracker.view.MainWindow">
+
+    <Label text="Task Name:"/>
+    <TextField fx:id="nameField"/>
+
+    <Label text="Description:"/>
+    <TextArea fx:id="descriptionField"/>
+
+    <Label text="Priority:"/>
+    <ComboBox fx:id="priorityBox"/>
+
+    <Button text="Add Task" onAction="#addTask"/>
+
+    <Label text="Tasks:"/>
+    <ListView fx:id="taskList"/>
+</VBox>
