@@ -76,11 +76,19 @@ public class MainWindow {
         }
     }
 
-    
     @FXML
     private void countTasks() {
         lowCountField.setText(String.valueOf(TaskUtils.countTasksByPriority("Low", tasks)));
         mediumCountField.setText(String.valueOf(TaskUtils.countTasksByPriority("Medium", tasks)));
         highCountField.setText(String.valueOf(TaskUtils.countTasksByPriority("High", tasks)));
     }
+@FXML
+private void removeTask() {
+    Task selectedTask = taskList.getSelectionModel().getSelectedItem();
+    if (selectedTask != null) {
+        tasks.remove(selectedTask);
+        selectedDescriptionField.clear();
+        selectedPriorityField.clear();
+    }
+}
 }

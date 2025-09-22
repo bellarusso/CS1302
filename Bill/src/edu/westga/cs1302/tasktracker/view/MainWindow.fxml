@@ -23,7 +23,7 @@
     <ComboBox fx:id="priorityBox" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
 
     <Button text="Add Task" onAction="#addTask" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
-
+    <Button text="Remove Task" onAction="#removeTask" GridPane.rowIndex="12" GridPane.columnIndex="1"/>
     <!-- List of tasks -->
     <Label text="Tasks:" GridPane.rowIndex="4" GridPane.columnIndex="0" GridPane.valignment="TOP"/>
     <ListView fx:id="taskList" prefHeight="150" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
@@ -31,7 +31,7 @@
     <!-- Selected task details -->
     <Label text="Selected Description:" GridPane.rowIndex="5" GridPane.columnIndex="0" GridPane.valignment="TOP"/>
     <TextArea fx:id="selectedDescriptionField" prefRowCount="3" GridPane.rowIndex="5" GridPane.columnIndex="1"/>
-
+    <Button text="Update Description" onAction="#updateDescription" GridPane.rowIndex="12" GridPane.columnIndex="0"/>
     <Label text="Selected Priority:" GridPane.rowIndex="6" GridPane.columnIndex="0"/>
     <TextField fx:id="selectedPriorityField" editable="false" GridPane.rowIndex="6" GridPane.columnIndex="1"/>
 
