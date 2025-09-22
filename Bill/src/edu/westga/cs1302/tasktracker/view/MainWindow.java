@@ -1,6 +1,7 @@
 package edu.westga.cs1302.tasktracker.view;
 
 import edu.westga.cs1302.tasktracker.model.Task;
+import edu.westga.cs1302.tasktracker.model.TaskUtils;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -18,10 +19,19 @@ public class MainWindow {
     @FXML
     private ListView<Task> taskList;
 
+    // Fields for selected task
     @FXML
-    private TextArea selectedDescriptionField;
+    private TextArea selectedDescriptionField; // editable for updating
     @FXML
-    private TextField selectedPriorityField;
+    private TextField selectedPriorityField;   // read-only
+
+    // Fields for counting tasks by priority
+    @FXML
+    private Label lowCountLabel;
+    @FXML
+    private Label mediumCountLabel;
+    @FXML
+    private Label highCountLabel;
 
     private ObservableList<Task> tasks;
 
@@ -59,6 +69,7 @@ public class MainWindow {
         }
     }
 
+    // Update description of selected task
     @FXML
     private void updateDescription() {
         Task selectedTask = taskList.getSelectionModel().getSelectedItem();
@@ -76,5 +87,16 @@ public class MainWindow {
             selectedDescriptionField.clear();
             selectedPriorityField.clear();
         }
+    }
+
+    @FXML
+    private void countTasksByPriority() {
+        int lowCount = TaskUtils.countTasks("Low", tasks);
+        int mediumCount = TaskUtils.countTasks("Medium", tasks);
+        int highCount = TaskUtils.countTasks("High", tasks);
+
+        lowCountLabel.setText(String.valueOf(lowCount));
+        mediumCountLabel.setText(String.valueOf(mediumCount));
+        highCountLabel.setText(String.valueOf(highCount));
     }
 }
