@@ -19,19 +19,17 @@ public class MainWindow {
     @FXML
     private ListView<Task> taskList;
 
-    // Fields for selected task
     @FXML
-    private TextArea selectedDescriptionField; // editable for updating
+    private TextArea selectedDescriptionField;
     @FXML
-    private TextField selectedPriorityField;   // read-only
+    private TextField selectedPriorityField;
 
-    // Fields for counting tasks by priority
     @FXML
-    private Label lowCountLabel;
+    private TextField lowCountField;
     @FXML
-    private Label mediumCountLabel;
+    private TextField mediumCountField;
     @FXML
-    private Label highCountLabel;
+    private TextField highCountField;
 
     private ObservableList<Task> tasks;
 
@@ -69,7 +67,6 @@ public class MainWindow {
         }
     }
 
-    // Update description of selected task
     @FXML
     private void updateDescription() {
         Task selectedTask = taskList.getSelectionModel().getSelectedItem();
@@ -79,24 +76,11 @@ public class MainWindow {
         }
     }
 
+    
     @FXML
-    private void removeTask() {
-        Task selectedTask = taskList.getSelectionModel().getSelectedItem();
-        if (selectedTask != null) {
-            tasks.remove(selectedTask);
-            selectedDescriptionField.clear();
-            selectedPriorityField.clear();
-        }
-    }
-
-    @FXML
-    private void countTasksByPriority() {
-        int lowCount = TaskUtils.countTasks("Low", tasks);
-        int mediumCount = TaskUtils.countTasks("Medium", tasks);
-        int highCount = TaskUtils.countTasks("High", tasks);
-
-        lowCountLabel.setText(String.valueOf(lowCount));
-        mediumCountLabel.setText(String.valueOf(mediumCount));
-        highCountLabel.setText(String.valueOf(highCount));
+    private void countTasks() {
+        lowCountField.setText(String.valueOf(TaskUtils.countTasksByPriority("Low", tasks)));
+        mediumCountField.setText(String.valueOf(TaskUtils.countTasksByPriority("Medium", tasks)));
+        highCountField.setText(String.valueOf(TaskUtils.countTasksByPriority("High", tasks)));
     }
 }
