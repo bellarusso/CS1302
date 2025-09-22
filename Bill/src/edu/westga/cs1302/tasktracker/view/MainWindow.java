@@ -8,7 +8,6 @@ import javafx.scene.control.*;
 
 public class MainWindow {
 
-    // Input fields for adding a new task
     @FXML
     private TextField nameField;
     @FXML
@@ -18,11 +17,10 @@ public class MainWindow {
     @FXML
     private ListView<Task> taskList;
 
-    // Fields for selected task
     @FXML
-    private TextArea selectedDescriptionField; // now editable for 3A
+    private TextArea selectedDescriptionField; 
     @FXML
-    private TextField selectedPriorityField;  // read-only
+    private TextField selectedPriorityField;
 
     private ObservableList<Task> tasks;
 
@@ -66,6 +64,16 @@ public class MainWindow {
         if (selectedTask != null) {
             selectedTask.setDescription(selectedDescriptionField.getText());
             taskList.refresh();
+        }
+    }
+
+    @FXML
+    private void removeTask() {
+        Task selectedTask = taskList.getSelectionModel().getSelectedItem();
+        if (selectedTask != null) {
+            tasks.remove(selectedTask);
+            selectedDescriptionField.clear();
+            selectedPriorityField.clear();
         }
     }
 }
