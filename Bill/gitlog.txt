@@ -1,19 +1,20 @@
-* d9b2651 (HEAD -> dev, origin/dev) Checkstyle for Task.java
+* 2f1b4d7 (HEAD -> dev, origin/dev, origin/5-count-tasks, origin/4A-remove-task-ui, origin/3A-update-description, 5-count-tasks, 4A-remove-task-ui, 3A-update-description, 1A-add-task-ui) Git log history
+* d9b2651 Checkstyle for Task.java
 * 938e53f checkstyle for TaskTracker
 * 1ba59dc Checkstyle for MainWindow.java
 * 556076f Checkstyle for TaskUtil
 * b66f0be fixed hxml errors for buttons
 *   4abccc7 Merge branch '3A-update-description' into dev
 |\  
-| * 90bcf8e (3A-update-description) save changes to .project
+| * 90bcf8e save changes to .project
 * | 7907d59 Save local changes before mergin
-* | 48d1ee9 (origin/5-count-tasks, 5-count-tasks) Implement count tasks feature
+* | 48d1ee9 Implement count tasks feature
 * | 70cf046 5A update TaskTracker ui for counting tasks
-* | 994051a (origin/4A-remove-task-ui, 4A-remove-task-ui) 4A -remove task from list
+* | 994051a 4A -remove task from list
 |/  
-* 4403f66 (origin/3A-update-description) 3A - update task description
+* 4403f66 3A - update task description
 * 174a9ea 3A - update task description
-* 41c254a (origin/2A-display-selected-task, origin/1B-task-model, origin/1A-add-task-ui, 2A-display-selected-task, 1B-task-model, 1A-add-task-ui) 1D Add TaskTrackerApp main class
+* 41c254a (origin/2A-display-selected-task, origin/1B-task-model, origin/1A-add-task-ui, 2A-display-selected-task, 1B-task-model) 1D Add TaskTrackerApp main class
 * 7982218 1C -Add MainWindow controller
 * 1e46778 1B -Add Task class
 * a4e4e74 Adding project to repo
