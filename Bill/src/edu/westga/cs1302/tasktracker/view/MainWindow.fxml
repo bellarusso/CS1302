@@ -48,7 +48,4 @@
     <Label text="High Priority:" GridPane.rowIndex="10" GridPane.columnIndex="0"/>
     <TextField fx:id="highCountField" editable="false" GridPane.rowIndex="10" GridPane.columnIndex="1"/>
 
-    <Label text="Total Tasks:" GridPane.rowIndex="11" GridPane.columnIndex="0"/>
-    <TextField fx:id="taskCountField" editable="false" GridPane.rowIndex="11" GridPane.columnIndex="1"/>
-
 </GridPane>
