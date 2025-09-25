@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 import edu.westga.cs1302.lab5.model.Student;
 
-/** Supports saving and loading student data,
+/** Supports saving and loading student data.
  * 
  * @author CS 1302
  * @version Fall 2025
