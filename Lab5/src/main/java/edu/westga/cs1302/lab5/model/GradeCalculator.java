@@ -2,21 +2,22 @@ package edu.westga.cs1302.lab5.model;
 
 import java.util.List;
 
-/** Provides utility functions for grade calculations.
+/**
+ * Provides utility functions for grade calculations.
  * 
  * @author CS 1302
  * @version Fall 2025
  */
 public class GradeCalculator {
 
-	/** Calculates average grade for a set of students.
+	/**
+	 * Calculates average grade for a set of students.
 	 * 
 	 * @precondition students != null
 	 * @postcondition none
 	 * 
 	 * @param students the list of students to calculate average grade for
-	 * @return average grade 	if !students.isEmpty()
-	 * 		   0				if students.isEmpty()
+	 * @return average grade if !students.isEmpty() 0 if students.isEmpty()
 	 */
 	public static double calculateAverageGrade(List<Student> students) {
 		if (students == null) {

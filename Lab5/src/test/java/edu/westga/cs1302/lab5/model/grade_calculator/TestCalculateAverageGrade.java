@@ -14,23 +14,27 @@ class TestCalculateAverageGrade {
 
 	@Test
 	void testNullStudents() {
-		assertThrows(IllegalArgumentException.class, ()->{GradeCalculator.calculateAverageGrade(null);});
+		assertThrows(IllegalArgumentException.class, () -> {
+			GradeCalculator.calculateAverageGrade(null);
+		});
 	}
 
 	@Test
 	void testNoStudent() {
 		ArrayList<Student> students = new ArrayList<Student>();
 
-		assertThrows(IllegalArgumentException.class, ()->{GradeCalculator.calculateAverageGrade(students);});
+		assertThrows(IllegalArgumentException.class, () -> {
+			GradeCalculator.calculateAverageGrade(students);
+		});
 	}
 
 	@Test
 	void testOneStudent() {
 		ArrayList<Student> students = new ArrayList<Student>();
 		students.add(new Student("aaa", 1));
-		
+
 		double result = GradeCalculator.calculateAverageGrade(students);
-		
+
 		assertEquals(1.0, result, TestingConstants.DELTA);
 	}
 
@@ -39,9 +43,9 @@ class TestCalculateAverageGrade {
 		ArrayList<Student> students = new ArrayList<Student>();
 		students.add(new Student("aaa", 1));
 		students.add(new Student("bbb", 2));
-		
+
 		double result = GradeCalculator.calculateAverageGrade(students);
-		
+
 		assertEquals(1.5, result, TestingConstants.DELTA);
 	}
 

@@ -1,6 +1,7 @@
 package edu.westga.cs1302.lab5;
 
-/** Provides constants needed for testing.
+/**
+ * Provides constants needed for testing.
  * 
  * @author CS 1302
  * @version Fall 2025

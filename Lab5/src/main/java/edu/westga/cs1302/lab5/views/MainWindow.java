@@ -18,10 +18,14 @@ import javafx.scene.control.TextField;
  * @version Fall 2025
  */
 public class MainWindow {
-	@FXML private TextField avgGrade;
-	@FXML private TextField grade;
-	@FXML private TextField name;
-    @FXML private ListView<Student> students;
+	@FXML
+	private TextField avgGrade;
+	@FXML
+	private TextField grade;
+	@FXML
+	private TextField name;
+	@FXML
+	private ListView<Student> students;
 
 	@FXML
 	void addStudent(ActionEvent event) {
@@ -37,7 +41,8 @@ public class MainWindow {
 			alert.showAndWait();
 		} catch (IllegalArgumentException error) {
 			Alert alert = new Alert(Alert.AlertType.ERROR);
-			alert.setContentText("Unable to generate Student: " + error.getMessage() + ". Please reenter Student information.");
+			alert.setContentText(
+					"Unable to generate Student: " + error.getMessage() + ". Please reenter Student information.");
 			alert.showAndWait();
 		}
 	}

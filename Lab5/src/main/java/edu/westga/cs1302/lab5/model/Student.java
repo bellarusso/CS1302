@@ -1,6 +1,7 @@
 package edu.westga.cs1302.lab5.model;
 
-/** Stores and manages information for a single student.
+/**
+ * Stores and manages information for a single student.
  * 
  * @author CS 1302
  * @version Fall 2025
@@ -8,13 +9,14 @@ package edu.westga.cs1302.lab5.model;
 public class Student {
 	private String name;
 	private int grade;
-	
-	/** Create a new student with the specified name
+
+	/**
+	 * Create a new student with the specified name
 	 * 
 	 * @precondition name != null && name.length() >= 3
 	 * @postcondition getName() == name
 	 * 
-	 * @param name the name of the new student
+	 * @param name  the name of the new student
 	 * @param grade the grade for the new student
 	 * 
 	 * @throws IllegalArgumentException when precondition is violated
@@ -29,26 +31,28 @@ public class Student {
 		this.name = name;
 		this.grade = grade;
 	}
-	
-	/** Return the name of the student
+
+	/**
+	 * Return the name of the student
 	 * 
 	 * @return the name of the student
 	 */
 	public String getName() {
 		return this.name;
 	}
-	
-	/** Returns the grade for the student
+
+	/**
+	 * Returns the grade for the student
 	 * 
 	 * @return the grade for the student
 	 */
 	public int getGrade() {
 		return this.grade;
 	}
-	
+
 	@Override
 	public String toString() {
-		return this.name +  " - " + this.grade;
+		return this.name + " - " + this.grade;
 	}
-	
+
 }

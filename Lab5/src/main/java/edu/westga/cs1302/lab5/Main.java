@@ -15,36 +15,36 @@ import java.io.IOException;
  * @version Fall 2025
  */
 public class Main extends Application {
-  private static final String WINDOW_TITLE = "Course Management System";
-  private static final String GUI_RESOURCE = "views/MainWindow.fxml";
+	private static final String WINDOW_TITLE = "Course Management System";
+	private static final String GUI_RESOURCE = "views/MainWindow.fxml";
 
-  /**
-   * JavaFX entry point.
-   *
-   * @precondition none
-   * @postcondition none
-   *
-   * @throws IOException
-   */
-  @Override
-  public void start(Stage primaryStage) throws IOException {
-    Parent parent = FXMLLoader.load(getClass().getResource(Main.GUI_RESOURCE));
-    Scene scene = new Scene(parent);
-    primaryStage.setTitle(WINDOW_TITLE);
-    primaryStage.setScene(scene);
-    primaryStage.show();
-  }
+	/**
+	 * JavaFX entry point.
+	 *
+	 * @precondition none
+	 * @postcondition none
+	 *
+	 * @throws IOException
+	 */
+	@Override
+	public void start(Stage primaryStage) throws IOException {
+		Parent parent = FXMLLoader.load(getClass().getResource(Main.GUI_RESOURCE));
+		Scene scene = new Scene(parent);
+		primaryStage.setTitle(WINDOW_TITLE);
+		primaryStage.setScene(scene);
+		primaryStage.show();
+	}
 
-  /**
-   * Primary Java entry point.
-   *
-   * @precondition none
-   * @postcondition none
-   *
-   * @param args command line arguments
-   */
-  public static void main(String[] args) {
-    Main.launch(args);
-  }
-  
+	/**
+	 * Primary Java entry point.
+	 *
+	 * @precondition none
+	 * @postcondition none
+	 *
+	 * @param args command line arguments
+	 */
+	public static void main(String[] args) {
+		Main.launch(args);
+	}
+
 }
