@@ -6,18 +6,24 @@ import edu.westga.cs1302.bill.model.BillItem;
 import org.junit.jupiter.api.Test;
 
 
-class TestConstructor {
+public class TestConstructor {
 
   @Test
     void testNullName() {
-    assertThrows(IllegalArgumentException.class, () -> {new BillItem(null, 1);});
+    assertThrows(IllegalArgumentException.class, () -> {
+    	new BillItem(null, 1);
+    	}
+    );
   }
 
   @Test
    void testAmountTooLow() {
-    assertThrows(IllegalArgumentException.class, () -> {new BillItem("name", 0);});
+    assertThrows(IllegalArgumentException.class, () -> {
+      new BillItem("name", 0); 
+    } 
+    );
   } 
-	
+  
   @Test
    void testValindNameAndAmount() {
     BillItem result = new BillItem("name", 1);

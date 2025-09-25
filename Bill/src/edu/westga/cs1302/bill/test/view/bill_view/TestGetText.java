@@ -10,9 +10,9 @@ import org.junit.jupiter.api.Test;
 class TestGetText {
 
   @Test
-  void testNullBill() {
+    void testNullBill() {
     BillView view = new BillView();
-    assertThrows(NullPointerException.class, () -> {view.getText(null);});
+    assertThrows(NullPointerException.class, () -> view.getText(null));
   }
 	
   @Test
