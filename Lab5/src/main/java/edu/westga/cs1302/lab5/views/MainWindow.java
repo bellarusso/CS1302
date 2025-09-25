@@ -13,72 +13,76 @@ import javafx.scene.control.TextField;
 
 /**
  * Controller class for drawing various things to our canvas window.
- * 
+ *
  * @author CS 1302
  * @version Fall 2025
  */
 public class MainWindow {
-	@FXML
-	private TextField avgGrade;
-	@FXML
-	private TextField grade;
-	@FXML
-	private TextField name;
-	@FXML
-	private ListView<Student> students;
+  @FXML
+  private TextField avgGrade;
+  @FXML
+  private TextField grade;
+  @FXML
+  private TextField name;
+  @FXML
+  private ListView<Student> students;
 
-	@FXML
-	void addStudent(ActionEvent event) {
-		try {
-			String name = this.name.getText();
-			int grade = Integer.parseInt(this.grade.getText());
-			Student student = new Student(name, grade);
-			this.students.getItems().add(student);
-			this.avgGrade.setText(Double.toString(GradeCalculator.calculateAverageGrade(this.students.getItems())));
-		} catch (NumberFormatException error) {
-			Alert alert = new Alert(Alert.AlertType.ERROR);
-			alert.setContentText("Invalid grade provided, must be an integer value. Please reenter grade.");
-			alert.showAndWait();
-		} catch (IllegalArgumentException error) {
-			Alert alert = new Alert(Alert.AlertType.ERROR);
-			alert.setContentText(
-					"Unable to generate Student: " + error.getMessage() + ". Please reenter Student information.");
-			alert.showAndWait();
-		}
-	}
+  @FXML
+  void addStudent(ActionEvent event) {
+    try {
+      String name = this.name.getText();
+      int grade = Integer.parseInt(this.grade.getText());
+      Student student = new Student(name, grade);
+      this.students.getItems().add(student);
+      this.avgGrade.setText(Double.toString(GradeCalculator.calculateAverageGrade(
+          this.students.getItems())));
+    } catch (NumberFormatException error) {
+      Alert alert = new Alert(Alert.AlertType.ERROR);
+      alert.setContentText("Invalid grade provided, must be an integer value. "
+          + "Please reenter grade.");
+      alert.showAndWait();
+    } catch (IllegalArgumentException error) {
+      Alert alert = new Alert(Alert.AlertType.ERROR);
+      alert.setContentText(
+          "Unable to generate Student: " + error.getMessage() 
+          + ". Please reenter Student information.");
+      alert.showAndWait();
+    }
+  }
 
-	@FXML
-	void loadStudents(ActionEvent event) {
-		this.loadStudents();
-	}
+  @FXML
+  void loadStudents(ActionEvent event) {
+    this.loadStudents();
+  }
 
-	private void loadStudents() {
-		try {
-			Student[] students = StudentDataPersistenceManager.loadStudentData();
-			this.students.getItems().clear();
-			this.students.getItems().addAll(students);
-		} catch (IOException error) {
-			Alert alert = new Alert(Alert.AlertType.ERROR);
-			alert.setContentText(error.getMessage());
-			alert.showAndWait();
-		}
-	}
+  private void loadStudents() {
+    try {
+      Student[] students = StudentDataPersistenceManager.loadStudentData();
+      this.students.getItems().clear();
+      this.students.getItems().addAll(students);
+    } catch (IOException error) {
+      Alert alert = new Alert(Alert.AlertType.ERROR);
+      alert.setContentText(error.getMessage());
+      alert.showAndWait();
+    }
+  }
 
-	@FXML
-	void saveStudents(ActionEvent event) {
-		try {
-			StudentDataPersistenceManager.saveStudentData(this.students.getItems().toArray(new Student[0]));
-		} catch (Exception error) {
-			Alert alert = new Alert(Alert.AlertType.ERROR);
-			alert.setContentText(error.getMessage());
-			alert.showAndWait();
-		}
-	}
+  @FXML
+  void saveStudents(ActionEvent event) {
+    try {
+      StudentDataPersistenceManager.saveStudentData(
+          this.students.getItems().toArray(new Student[0]));
+    } catch (Exception error) {
+      Alert alert = new Alert(Alert.AlertType.ERROR);
+      alert.setContentText(error.getMessage());
+      alert.showAndWait();
+    }
+  }
 
-	/**
-	 * Perform any needed initialization of UI components and underlying objects.
-	 */
-	public void initialize() {
-		this.loadStudents();
-	}
+  /**
+   * Perform any needed initialization of UI components and underlying objects.
+   */
+  public void initialize() {
+    this.loadStudents();
+  }
 }

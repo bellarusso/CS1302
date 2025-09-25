@@ -1,16 +1,17 @@
-package edu.westga.cs1302.lab5.persistence.student_data_persistence_manager;
+package edu.westga.cs1302.lab5.persistence.student.data.persistence.manager;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-import edu.westga.cs1302.lab5.model.Student;
-import edu.westga.cs1302.lab5.persistence.StudentDataPersistenceManager;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
+import edu.westga.cs1302.lab5.model.Student;
+import edu.westga.cs1302.lab5.persistence.StudentDataPersistenceManager;
 
 class TestLoadStudentData {
 
@@ -24,9 +25,6 @@ class TestLoadStudentData {
     }
   }
 
-  /**
-   * Test loading a correctly formatted CSV file.
-   */
   @Test
   void testLoadExpectedCsv() throws IOException {
     try (FileWriter writer = new FileWriter(this.testThisFile)) {
@@ -42,9 +40,6 @@ class TestLoadStudentData {
     assertEquals(50, loadedStudents[1].getGrade());
   }
 
-  /**
-   * Test loading from an empty file.
-   */
   @Test
   void testLoadStudentIsNull() throws IOException {
     new File(this.testThisFile).createNewFile(); // creates empty file
@@ -53,9 +48,6 @@ class TestLoadStudentData {
     assertEquals(0, loaded.length);
   }
 
-  /**
-   * Test loading an invalid CSV format triggers IOException.
-   */
   @Test
   void testLoadInvalidFormat() throws IOException {
     try (FileWriter writer = new FileWriter(this.testThisFile)) {
