@@ -1,9 +1,12 @@
 module edu.westga.cs1302.lab5 {
-    requires transitive javafx.controls;
+    requires javafx.controls;
     requires javafx.fxml;
     requires javafx.graphics;
-	requires org.junit.jupiter.api;
+    requires org.junit.jupiter.api;
 
     opens edu.westga.cs1302.lab5.views to javafx.fxml;
+    opens edu.westga.cs1302.lab5.persistence.student_data_persistence_manager to org.junit.jupiter.api;
+
     exports edu.westga.cs1302.lab5;
+    exports edu.westga.cs1302.lab5.persistence.student_data_persistence_manager;
 }

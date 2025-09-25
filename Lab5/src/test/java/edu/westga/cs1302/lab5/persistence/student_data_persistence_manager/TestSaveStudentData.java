@@ -6,13 +6,14 @@ import java.io.File;
 import java.io.IOException;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
 import edu.westga.cs1302.lab5.model.Student;
 import edu.westga.cs1302.lab5.persistence.StudentDataPersistenceManager;
 
 class TestSaveStudentData {
-	private final String testFile = StudentDataPersistenceManager.FILE_LOCATION;
+	public static final String testFile = "data.txt";
 	
 	@BeforeEach
     void setUp() throws Exception {
@@ -39,7 +40,7 @@ class TestSaveStudentData {
 	}
 	
 	@Test
-     void testSaveEmtyArray() throws IOException {
+     void testSaveEmptyArray() throws IOException {
 		Student[] empty = new Student[0];
 		StudentDataPersistenceManager.saveStudentData(empty);
 		
