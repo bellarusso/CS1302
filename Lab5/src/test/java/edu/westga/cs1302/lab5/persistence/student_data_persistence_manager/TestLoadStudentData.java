@@ -14,11 +14,11 @@ import edu.westga.cs1302.lab5.model.Student;
 import edu.westga.cs1302.lab5.persistence.StudentDataPersistenceManager;
 
 class TestLoadStudentData {
-	private final String testFile = "data.txt";
+	private final String testThisFile = "data.txt";
 
 	@Test
     void testLoadExpectedCSV() {
-		try(FileWriter writer = new FileWriter(this.testFile)) {
+		try(FileWriter writer = new FileWriter(this.testThisFile)) {
             writer.write("Bella;80" + System.lineSeparator());
             writer.write("Jacob;50" + System.lineSeparator());
         }
@@ -31,21 +31,19 @@ class TestLoadStudentData {
 	}
 	
 	@Test
-	void testLoadMissingFile() {
-		new File(this.testFile).createNewFile();
+	void testLoadStudentIsNull() {
+		new File(this.testThisFile).createNewFile();
 		Student[] loaded = StudentDataPersistenceManager.loadStudentData();
 		assertEquals(0, loaded.length);
 	}
 	
 	@Test
     void testLoadInvalidFormat() throws IOException {
-		try(FileWriter writer = new FileWriter(this.testFile)) {
+		try(FileWriter writer = new FileWriter(this.testThisFile)) {
 			writer.write("Bella-80" + System.lineSeparator());
 		}
 		assertThrows(IOException.class, () -> {
 			StudentDataPersistenceManager.loadStudentData();
 		});
 	}
-		
-
 }
