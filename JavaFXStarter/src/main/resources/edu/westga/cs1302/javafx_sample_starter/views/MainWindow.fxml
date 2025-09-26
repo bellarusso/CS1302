@@ -35,4 +35,7 @@
     <Label layoutX="470.0" layoutY="170.0" text="Priority:" />
     <TextField fx:id="selectedPriorityTextField" layoutX="470.0" layoutY="190.0" prefWidth="200.0" editable="false" />
 
+    <TextArea fx:id="selectedDescriptionTextArea" editable="false" wrapText="true" />
+    <TextField fx:id="selectedPriorityTextField" editable="false" />
+
 </AnchorPane>
