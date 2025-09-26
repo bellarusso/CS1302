@@ -5,6 +5,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -32,6 +33,15 @@ public class MainWindow {
 
   @FXML
   private TextField selectedPriorityTextField;
+
+  @FXML
+  private Label lowCountLabel;
+
+  @FXML
+  private Label mediumCountLabel;
+
+  @FXML
+  private Label highCountLabel;
 
   @FXML
   public void initialize() {
@@ -68,12 +78,9 @@ public class MainWindow {
       showAlert("Must select priority");
       return;
     }
-
-    // Create a new Data object and add to ListView
     Data newTask = new Data(name, description, priority);
     taskListView.getItems().add(newTask);
 
-    // Clear input fields
     nameTextField.clear();
     descriptionTextArea.clear();
     priorityComboBox.getSelectionModel().clearSelection();
@@ -108,6 +115,28 @@ public class MainWindow {
 
     selectedDescriptionTextArea.clear();
     selectedPriorityTextField.clear();
+  }
+
+  @FXML
+  private void handleCountTasksButton(ActionEvent event) {
+    int lowCount = 0;
+    int mediumCount = 0;
+    int highCount = 0;
+
+    for (Data task : taskListView.getItems()) {
+      String priority = task.getPriority();
+      if ("Low".equals(priority)) {
+        lowCount++;
+      } else if ("Medium".equals(priority)) {
+        mediumCount++;
+      } else if ("High".equals(priority)) {
+        highCount++;
+      }
+    }
+
+    lowCountLabel.setText(String.valueOf(lowCount));
+    mediumCountLabel.setText(String.valueOf(mediumCount));
+    highCountLabel.setText(String.valueOf(highCount));
   }
 
   private void showAlert(String message) {

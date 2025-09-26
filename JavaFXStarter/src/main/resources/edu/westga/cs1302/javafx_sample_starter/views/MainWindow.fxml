@@ -34,4 +34,18 @@
 
     <Button layoutX="470" layoutY="230" text="Update Description" onAction="#handleUpdateDescriptionButton" prefWidth="200"/>
     
+    <!-- Labels for task counts -->
+    <Label text="Low Tasks:" layoutX="470" layoutY="280"/>
+    <Label fx:id="lowCountLabel" text="0" layoutX="550" layoutY="280"/>
+    
+    <Label text="Medium Tasks:" layoutX="470" layoutY="310"/>
+    <Label fx:id="mediumCountLabel" text="0" layoutX="550" layoutY="310"/>
+    
+    <Label text="High Tasks:" layoutX="470" layoutY="340"/>
+    <Label fx:id="highCountLabel" text="0" layoutX="550" layoutY="340"/>
+    
+    <!-- Button to count tasks -->
+    <Button text="Count Tasks by Priority" onAction="#handleCountTasksButton"
+            layoutX="470" layoutY="370" prefWidth="200"/>
+
 </AnchorPane>
