@@ -15,7 +15,6 @@ import javafx.scene.control.TextField;
  * selection, and updating description.
  */
 public class MainWindow {
-
   @FXML
   private TextField nameTextField;
 
@@ -118,7 +117,7 @@ public class MainWindow {
   }
 
   @FXML
-  private void handleCountTasksButton(ActionEvent event) {
+  private void handleUpdateCountsButton(ActionEvent event) {
     int lowCount = 0;
     int mediumCount = 0;
     int highCount = 0;

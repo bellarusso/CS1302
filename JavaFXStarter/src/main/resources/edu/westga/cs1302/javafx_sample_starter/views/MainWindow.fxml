@@ -43,9 +43,6 @@
     
     <Label text="High Tasks:" layoutX="470" layoutY="340"/>
     <Label fx:id="highCountLabel" text="0" layoutX="550" layoutY="340"/>
-    
-    <!-- Button to count tasks -->
-    <Button text="Count Tasks by Priority" onAction="#handleCountTasksButton"
-            layoutX="470" layoutY="370" prefWidth="200"/>
+    <Button text="Update Counts" onAction="#handleUpdateCountsButton" layoutX="470" layoutY="380"/>
 
 </AnchorPane>
