@@ -96,6 +96,20 @@ public class MainWindow {
     taskListView.refresh();
   }
 
+  @FXML
+  private void handleRemoveTaskButton(ActionEvent event) {
+    Data selectedTask = taskListView.getSelectionModel().getSelectedItem();
+    if (selectedTask == null) {
+      showAlert("No task selected");
+      return;
+    }
+
+    taskListView.getItems().remove(selectedTask);
+
+    selectedDescriptionTextArea.clear();
+    selectedPriorityTextField.clear();
+  }
+
   private void showAlert(String message) {
     Alert alert = new Alert(Alert.AlertType.WARNING);
     alert.setTitle("Input Error");
@@ -103,4 +117,5 @@ public class MainWindow {
     alert.setContentText(message);
     alert.showAndWait();
   }
+
 }

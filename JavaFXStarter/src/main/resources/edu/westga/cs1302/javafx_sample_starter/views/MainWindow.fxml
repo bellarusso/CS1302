@@ -19,6 +19,8 @@
     <ComboBox fx:id="priorityComboBox" layoutX="120" layoutY="160" prefWidth="200"/>
 
     <Button text="Add Task" onAction="#handleAddTaskButton" layoutX="120" layoutY="200" prefWidth="200"/>
+    <Button text="Remove Task" onAction="#handleRemoveTaskButton"
+        layoutX="120" layoutY="370" prefWidth="200"/>
 
     <Label text="Tasks:" layoutX="20" layoutY="240"/>
     <ListView fx:id="taskListView" layoutX="120" layoutY="240" prefHeight="120" prefWidth="200"/>
