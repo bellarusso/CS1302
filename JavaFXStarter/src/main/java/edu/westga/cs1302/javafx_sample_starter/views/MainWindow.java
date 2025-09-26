@@ -1,16 +1,16 @@
 package edu.westga.cs1302.javafx_sample_starter.views;
 
-import edu.westga.cs1302.javafx_sample_starter.model.Task;
+import edu.westga.cs1302.javafx_sample_starter.model.Data;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
 /**
- * Controller class for drawing various things to our canvas window.
+ * Controller class for the main window of the Task Tracker application. Handles
+ * adding tasks and displaying selected task details.
  *
  * @author CS 1302
  * @version Fall 2025
@@ -27,19 +27,29 @@ public class MainWindow {
   private ComboBox<String> priorityComboBox;
 
   @FXML
-  private ListView<Task> taskListView;
+  private ListView<Data> taskListView;
 
-  /**
-   * Perform any needed initialization of UI components and underlying objects.
-   */
+  @FXML
+  private TextArea selectedDescriptionTextArea;
+
+  @FXML
+  private TextField selectedPriorityTextField;
+
+  @FXML
   public void initialize() {
     priorityComboBox.getItems().addAll("Low", "Medium", "High");
+
+    taskListView.getSelectionModel().selectedItemProperty().addListener((obs, oldTask, newTask) -> {
+      if (newTask != null) {
+        selectedDescriptionTextArea.setText(newTask.getDescription());
+        selectedPriorityTextField.setText(newTask.getPriority());
+      } else {
+        selectedDescriptionTextArea.clear();
+        selectedPriorityTextField.clear();
+      }
+    });
   }
 
-  /**
-   * Method to handle the Add Task button being pressed. Creates task and adds to
-   * listView
-   */
   @FXML
   private void handleAddTaskButton() {
     String name = nameTextField.getText();
@@ -64,8 +74,9 @@ public class MainWindow {
   }
 
   private void showAlert(String message) {
-    Alert alert = new Alert(AlertType.WARNING);
+    Alert alert = new Alert(Alert.AlertType.WARNING);
     alert.setTitle("Input Error");
+    alert.setHeaderText(null);
     alert.setContentText(message);
     alert.showAndWait();
   }
