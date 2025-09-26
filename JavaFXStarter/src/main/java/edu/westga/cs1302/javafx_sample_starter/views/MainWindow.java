@@ -54,7 +54,8 @@ public class MainWindow {
       showAlert("Must select priority");
       return;
     }
-    Task newTask = new Task(name, description, priority);
+
+    Data newTask = new Data(name, description, priority);
     taskListView.getItems().add(newTask);
 
     nameTextField.clear();
