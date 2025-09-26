@@ -31,5 +31,5 @@
     <TextField fx:id="selectedPriorityTextField" layoutX="470" layoutY="190" prefWidth="200" editable="false"/>
 
     <Button layoutX="470" layoutY="230" text="Update Description" onAction="#handleUpdateDescriptionButton" prefWidth="200"/>
-
+    
 </AnchorPane>

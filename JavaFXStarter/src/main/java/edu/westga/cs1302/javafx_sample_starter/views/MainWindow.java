@@ -1,6 +1,7 @@
 package edu.westga.cs1302.javafx_sample_starter.views;
 
 import edu.westga.cs1302.javafx_sample_starter.model.Data;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
@@ -9,11 +10,8 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
 /**
- * Controller class for the main window of the Task Tracker application. Handles
- * adding tasks and displaying selected task details.
- *
- * @author CS 1302
- * @version Fall 2025
+ * Controller for Task Tracker MainWindow Handles adding tasks, displaying
+ * selection, and updating description.
  */
 public class MainWindow {
 
@@ -37,8 +35,10 @@ public class MainWindow {
 
   @FXML
   public void initialize() {
+    // Initialize priority combo box
     priorityComboBox.getItems().addAll("Low", "Medium", "High");
 
+    // When a task is selected, display its details
     taskListView.getSelectionModel().selectedItemProperty().addListener((obs, oldTask, newTask) -> {
       if (newTask != null) {
         selectedDescriptionTextArea.setText(newTask.getDescription());
@@ -50,8 +50,11 @@ public class MainWindow {
     });
   }
 
+  /**
+   * Adds a new task to the list using values from input fields
+   */
   @FXML
-  private void handleAddTaskButton() {
+  private void handleAddTaskButton(ActionEvent event) {
     String name = nameTextField.getText();
     String description = descriptionTextArea.getText();
     String priority = priorityComboBox.getValue();
@@ -60,26 +63,33 @@ public class MainWindow {
       showAlert("Must enter name");
       return;
     }
+
     if (priority == null) {
       showAlert("Must select priority");
       return;
     }
 
+    // Create a new Data object and add to ListView
     Data newTask = new Data(name, description, priority);
     taskListView.getItems().add(newTask);
 
+    // Clear input fields
     nameTextField.clear();
     descriptionTextArea.clear();
     priorityComboBox.getSelectionModel().clearSelection();
   }
 
+  /**
+   * Updates the description of the currently selected task
+   */
   @FXML
-  private void handleUpdateDescriptionButton() {
+  private void handleUpdateDescriptionButton(ActionEvent event) {
     Data selectedTask = taskListView.getSelectionModel().getSelectedItem();
-    if (selectedTask != null) {
+    if (selectedTask == null) {
       showAlert("No task selected");
       return;
     }
+
     String newDescription = selectedDescriptionTextArea.getText();
     selectedTask.setDescription(newDescription);
 
