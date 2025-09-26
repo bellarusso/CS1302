@@ -44,10 +44,7 @@ public class MainWindow {
 
   @FXML
   public void initialize() {
-    // Initialize priority combo box
     priorityComboBox.getItems().addAll("Low", "Medium", "High");
-
-    // When a task is selected, display its details
     taskListView.getSelectionModel().selectedItemProperty().addListener((obs, oldTask, newTask) -> {
       if (newTask != null) {
         selectedDescriptionTextArea.setText(newTask.getDescription());
@@ -60,7 +57,7 @@ public class MainWindow {
   }
 
   /**
-   * Adds a new task to the list using values from input fields
+   * Adds a new task to the list using values from input fields.
    */
   @FXML
   private void handleAddTaskButton(ActionEvent event) {
@@ -86,7 +83,7 @@ public class MainWindow {
   }
 
   /**
-   * Updates the description of the currently selected task
+   * Updates the description of the currently selected task.
    */
   @FXML
   private void handleUpdateDescriptionButton(ActionEvent event) {

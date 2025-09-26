@@ -5,7 +5,7 @@ package edu.westga.cs1302.javafx_sample_starter.model;
  * priority are immutable. Description can be updated.
  * 
  * Subtask B – Business Logic for Storing a Task
- * 
+ *
  * @author CS 1302
  * @version Fall 2025
  */
