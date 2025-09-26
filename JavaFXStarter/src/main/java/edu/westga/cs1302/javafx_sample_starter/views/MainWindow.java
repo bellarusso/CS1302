@@ -73,6 +73,19 @@ public class MainWindow {
     priorityComboBox.getSelectionModel().clearSelection();
   }
 
+  @FXML
+  private void handleUpdateDescriptionButton() {
+    Data selectedTask = taskListView.getSelectionModel().getSelectedItem();
+    if (selectedTask != null) {
+      showAlert("No task selected");
+      return;
+    }
+    String newDescription = selectedDescriptionTextArea.getText();
+    selectedTask.setDescription(newDescription);
+
+    taskListView.refresh();
+  }
+
   private void showAlert(String message) {
     Alert alert = new Alert(Alert.AlertType.WARNING);
     alert.setTitle("Input Error");

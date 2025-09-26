@@ -4,38 +4,32 @@
 <?import javafx.scene.layout.AnchorPane?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
-            prefHeight="400.0" prefWidth="600.0"
+            prefHeight="450.0" prefWidth="730.0"
             xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="edu.westga.cs1302.javafx_sample_starter.views.MainWindow">
 
-    <!-- Task Name -->
+    <!-- Left Panel: Add Task -->
     <Label text="Task Name:" layoutX="20" layoutY="20"/>
     <TextField fx:id="nameTextField" layoutX="120" layoutY="20" prefWidth="200"/>
 
-    <!-- Task Description -->
     <Label text="Description:" layoutX="20" layoutY="60"/>
-    <TextArea fx:id="descriptionTextArea" layoutX="120" layoutY="60" prefHeight="80" prefWidth="200"/>
+    <TextArea fx:id="descriptionTextArea" layoutX="120" layoutY="60" prefHeight="80" prefWidth="200" wrapText="true"/>
 
-    <!-- Task Priority -->
     <Label text="Priority:" layoutX="20" layoutY="160"/>
     <ComboBox fx:id="priorityComboBox" layoutX="120" layoutY="160" prefWidth="200"/>
 
-    <!-- Add Task Button -->
-    <Button text="Add Task" onAction="#handleAddTaskButton" layoutX="120" layoutY="200"/>
+    <Button text="Add Task" onAction="#handleAddTaskButton" layoutX="120" layoutY="200" prefWidth="200"/>
 
-    <!-- Task List -->
     <Label text="Tasks:" layoutX="20" layoutY="240"/>
     <ListView fx:id="taskListView" layoutX="120" layoutY="240" prefHeight="120" prefWidth="200"/>
-    
-    <!-- Selected Task Description -->
-    <Label layoutX="470.0" layoutY="20.0" text="Description:" />
-    <TextArea fx:id="selectedDescriptionTextArea" layoutX="470.0" layoutY="40.0" prefWidth="200.0" prefHeight="120.0" editable="false" wrapText="true" />
 
-    <!-- Selected Task Priority -->
-    <Label layoutX="470.0" layoutY="170.0" text="Priority:" />
-    <TextField fx:id="selectedPriorityTextField" layoutX="470.0" layoutY="190.0" prefWidth="200.0" editable="false" />
+    <!-- Right Panel: Selected Task -->
+    <Label layoutX="470" layoutY="20" text="Description:" />
+    <TextArea fx:id="selectedDescriptionTextArea" layoutX="470" layoutY="40" prefWidth="200" prefHeight="120" editable="true" wrapText="true"/>
 
-    <TextArea fx:id="selectedDescriptionTextArea" editable="false" wrapText="true" />
-    <TextField fx:id="selectedPriorityTextField" editable="false" />
+    <Label layoutX="470" layoutY="170" text="Priority:" />
+    <TextField fx:id="selectedPriorityTextField" layoutX="470" layoutY="190" prefWidth="200" editable="false"/>
+
+    <Button layoutX="470" layoutY="230" text="Update Description" onAction="#handleUpdateDescriptionButton" prefWidth="200"/>
 
 </AnchorPane>
