@@ -15,6 +15,15 @@ public class Data {
   private String description;
   private final String priority;
 
+  /**
+   * Creates a new Task with the given name, description, and priority.
+   *
+   * @param name        the name of the task
+   * @param description the description of the task (can be empty)
+   * @param priority    the priority of the task
+   * 
+   * @throws IllegalArgumentException if name or priority is null or empty
+   */
   public Data(String name, String description, String priority) {
     if (name == null || name.trim().isEmpty()) {
       throw new IllegalArgumentException("Task name cannot be empty");

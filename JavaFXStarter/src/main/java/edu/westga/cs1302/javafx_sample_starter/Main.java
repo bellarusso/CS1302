@@ -9,7 +9,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 /**
- * Entry point for the program
+ * Entry point for the program.
  *
  * @author CS 1302
  * @version Fall 2025
@@ -24,7 +24,6 @@ public class Main extends Application {
    * @precondition none
    * @postcondition none
    *
-   * @throws IOException
    */
   @Override
   public void start(Stage primaryStage) throws IOException {

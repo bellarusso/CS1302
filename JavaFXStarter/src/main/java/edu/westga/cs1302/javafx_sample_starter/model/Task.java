@@ -2,6 +2,12 @@ package edu.westga.cs1302.javafx_sample_starter.model;
 
 import java.util.List;
 
+/**
+ * Represents a task with a name, description, and priority.
+ *
+ * @author CS 1302
+ * @version Fall 2025
+ */
 public class Task {
 
   /**

@@ -10,7 +10,7 @@ import edu.westga.cs1302.javafx_sample_starter.model.Data;
 class TestConstructor {
 
   @Test
-  public void testConstructorSetInfo() {
+  public void testConstructorWithValidInputs() {
     Data task = new Data("Chore 1", "Walk the dog", "high");
     assertEquals("Chore 1", task.getName());
     assertEquals("Walk the dog", task.getDescription());
@@ -18,19 +18,48 @@ class TestConstructor {
   }
 
   @Test
-  public void testConstructorEmptyDescription() {
-    Data task = new Data("Chore 1", "", "high");
+  public void testConstructorEmptyOrNullDescription() {
+    Data task1 = new Data("Chore 1", "", "high");
+    assertEquals("", task1.getDescription());
 
-    assertEquals("Chore 1", task.getName());
-    assertEquals("", task.getDescription());
-    assertEquals("high", task.getPriority());
+    Data task2 = new Data("Chore 2", null, "medium");
+    assertEquals("", task2.getDescription());
   }
 
   @Test
-  public void testConstructorWithNullValues() {
+  public void testConstructorInvalidNameThrowsException() {
+    assertThrows(IllegalArgumentException.class, () -> new Data(null, "description", "high"));
+    assertThrows(IllegalArgumentException.class, () -> new Data("", "description", "high"));
+  }
+
+  @Test
+  public void testConstructorInvalidPriorityThrowsException() {
+    assertThrows(IllegalArgumentException.class, () -> new Data("Chore 1", "Walk the dog", null));
+    assertThrows(IllegalArgumentException.class, () -> new Data("Chore 1", "Walk the dog", ""));
+  }
+
+  @Test
+  public void testConstructorEmptyNameThrowsException() {
     assertThrows(IllegalArgumentException.class, () -> {
-      new Data(null, null, null);
+      new Data("", "Walk the dog", "high");
     });
+  }
+
+  @Test
+  public void testSetDescriptionValidNoNull() {
+    Data task = new Data("Chore 1", "Walk the dog", "high");
+    task.setDescription("Feed the dog");
+    assertEquals("Feed the dog", task.getDescription());
+    task.setDescription("");
+    assertEquals("", task.getDescription());
+    task.setDescription(null);
+    assertEquals("", task.getDescription());
+  }
+
+  @Test
+  public void testStringReturnsName() {
+    Data task = new Data("Chore 1", "Walk the dog", "high");
+    assertEquals("Chore 1", task.toString());
   }
 
 }

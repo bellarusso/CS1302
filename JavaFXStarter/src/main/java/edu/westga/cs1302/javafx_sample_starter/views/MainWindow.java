@@ -42,6 +42,10 @@ public class MainWindow {
   @FXML
   private Label highCountLabel;
 
+  /**
+   * Initializes the controller class. This method is automatically called after
+   * the fxml file has been loaded.
+   */
   @FXML
   public void initialize() {
     priorityComboBox.getItems().addAll("Low", "Medium", "High");
